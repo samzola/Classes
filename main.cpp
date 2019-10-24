@@ -1,15 +1,16 @@
 #include <iostream>
+#include <cstring>
 #include <vector>
 
 using namespace std;
 
-void add(vector<Room*> &list);
-void search(vector<Room*> &list);
-void del(vector<Room*> &list);
+void add();
+//void search(vector<Room*> &list);
+//void del(vector<Room*> &list);
 	 
 int main() {
   bool running = true;
-  vector<Room*> list;
+  // vector<Room*> list;
   char command[8];
   char cAdd[8] = "add";
   char cSearch[8] = "search";
@@ -25,13 +26,14 @@ int main() {
       }
     }
     if (strcmp(cAdd, command) == 0) {
-      add(list);
+      add();
+      cout << "ADD" << endl;
     }
     else if (strcmp(cSearch, command) == 0) {
-      search(list);
+      // search(list);
     }
     else if (strcmp(cDel, command) == 0) {
-      del(list);
+      //  del(list);
     }
     else if (strcmp(cQuit, command) == 0) {
       running = false;
@@ -43,20 +45,21 @@ int main() {
   return 0;
 }
 
-void add(vector<Room*> list) {
+void add() {
   char addTypeI[15];
-  char cVG[11] = "video game";
+  char cVG[11] = "videogame";
   char cMusic[8] = "music";
   char cMovie[8] = "movie";
-  cout << "Enter the name of the media you would like to add (video game, music, movie)" << endl;
+  cout << "Enter the name of the media you would like to add (videogame, music, movie)" << endl;
   cin >> addTypeI;
   cin.get();
-  for (int i = 0; i < command[i]; i++) {
-    if (command[i] >= 65 && command[i] <= 92) {
-      command[i] = command[i] + 32;
+  for (int i = 0; i < addTypeI[i]; i++) {
+    if (addTypeI[i] >= 65 && addTypeI[i] <= 92) {
+      addTypeI[i] = addTypeI[i] + 32;
     }
   }
   if (strcmp(cVG, addTypeI) == 0) {
+    cout << "VG" << endl;
     //add video game 
   }
   else if (strcmp(cMusic, addTypeI) == 0) {
@@ -68,4 +71,4 @@ void add(vector<Room*> list) {
   else {
     cout << "Invalid command." << endl;
   }
-}
+  }
