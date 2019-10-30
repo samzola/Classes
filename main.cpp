@@ -17,7 +17,7 @@ int main() {
   cout << "Welcome to the 'classes' program!." << endl;
   cout << "In this program, you can organize media such as games, movies, or music." << endl;
   while (running == true) {
-    cout << "To get started, enter a command (add, search, delete, or quit)." << endl;
+    cout << "Please enter a command (add, search, delete, or quit)." << endl;
     cin >> command;
     cin.get();
     for (int i = 0; i < command[i]; i++) {
@@ -26,8 +26,7 @@ int main() {
       }
     }
     if (strcmp(command, "add") == 0) {
-      //add(mediaVect);
-      cout << "ADD" << endl;
+      add(&mediaVect);
     }
     else if (strcmp(command, "search") == 0) {
       //search(mediaVect);
@@ -41,8 +40,77 @@ int main() {
       running = false;
     }
     else {
-      cout << "Please enter a valid command (add, search, delete, quit)" << endl;
+      cout << "Invalid command, please try again." << endl;
     }
   }
   return 0;
+}
+
+void add(vector<Media*>* media) {
+  char addCommand[10];
+  cout << "What type of media would you like to add (game, movie, music)?" << endl;
+  cin >> addCommand;
+  cin.get();
+  for (int i = 0; i < addCommand[i]; i++) {
+    if (addCommand[i] >= 65 && addCommand[i] <= 92) {
+      addCommand[i] = addCommand[i] + 32;
+    }
+  }
+  if (strcmp(addCommand, "game") == 0) {
+    Game* game = new Game();
+    cout << "Title: ";
+    cin >> game->getTitle();
+    cin.get();
+    cout << "Year: ";
+    cin >> *game->getYear();
+    cin.get();
+    cout << "Publisher: ";
+    cin >> game->getPublisher();
+    cin.get();
+    cout << "Rating: ";
+    cin >> *game->getRating();
+    cin.get();
+    media->push_back(game);
+  }
+  else if (strcmp(addCommand, "music") == 0) {
+    Music* music = new Music();
+    cout << "Title: ";
+    cin >> music->getTitle();
+    cin.get();
+    cout << "Year: ";
+    cin >> *music->getYear();
+    cin.get();
+    cout << "Artist: ";
+    cin >> music->getArtist();
+    cin.get();
+    cout << "Publisher: ";
+    cin >> music->getPublisher();
+    cin.get();
+    cout << "Duration: ";
+    cin >> *music->getDuration();
+    cin.get();
+    media->push_back(music);
+  }
+  else if (strcmp(addCommand, "movie") == 0) {
+    Movie* movie = new Movie();
+    cout << "Title: ";
+    cin >> movie->getTitle();
+    cin.get();
+    cout << "Year: ";
+    cin >> *movie->getYear();
+    cin.get();
+    cout << "Director: ";
+    cin >> movie->getDirector();
+    cin.get();
+    cout << "Duration: ";
+    cin >> *movie->getDuration();
+    cin.get();
+    cout << "Rating: ";
+    cin >> *movie->getRating();
+    cin.get();
+    media->push_back(movie);
+  }
+  else {
+    cout << "Invalid command, please try again." << endl;
+  }
 }
