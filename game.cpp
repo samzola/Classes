@@ -1,3 +1,5 @@
+//this is a game, which contains a publisher and rating, along with title and year from parent
+
 #include <iostream>
 #include <cstring>
 #include "game.h"

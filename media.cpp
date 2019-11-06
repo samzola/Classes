@@ -1,3 +1,5 @@
+//this is the parent for all media types and contains the title, year, and type of media
+
 #include <iostream>
 #include <cstring>
 #include "media.h"

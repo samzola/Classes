@@ -1,3 +1,5 @@
+//this is music, which contains an artist, duration, and publisher along with the others from its parent
+
 #include <iostream>
 #include <cstring>
 #include "media.h"

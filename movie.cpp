@@ -1,3 +1,5 @@
+//this is a movie, which contains a director, rating, and duration along with others from parent
+
 #include <iostream>
 #include <cstring>
 #include "media.h"

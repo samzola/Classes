@@ -7,11 +7,11 @@
 
 using namespace std;
 
-class Music : public Media {
+class Music : public Media { //make music class a child of media class 
  public:
   Music();
-  virtual int getType();
-  char* getArtist();
+  virtual int getType(); //virtual so it is different from parent and siblings
+  char* getArtist(); //keeps track of artist, duration, and publisher
   int* getDuration();
   char* getPublisher();
  private:
